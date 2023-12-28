@@ -1,0 +1,10 @@
+.container {
+  /* position: fixed;
+  height: 100%; */
+  bottom: 2rem;
+}
+
+.conditions {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}

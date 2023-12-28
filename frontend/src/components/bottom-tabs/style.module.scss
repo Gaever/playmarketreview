@@ -1,0 +1,25 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.itemTitle {
+  font-size: 10px;
+}
+
+.activeItem span {
+  color: $primary;
+}
+
+.activeItem svg {
+  fill: $primary;
+}
+
+.unread-messages {
+  font-size: 10px;
+  right: 10px;
+  top: 5px;
+  color: white !important;
+}
+
+.unread-messages span {
+  color: white !important;
+}

@@ -1,0 +1,82 @@
+import messaging, {
+  FirebaseMessagingTypes,
+} from '@react-native-firebase/messaging';
+import notifee, {
+  AndroidImportance,
+  AndroidVisibility,
+  EventType,
+} from '@notifee/react-native';
+import {logger} from '../utils/logger';
+
+const initNotifications = async (args: {
+  onGetToken: (token: string | null) => void;
+  onNotificationOpenedApp: (
+    message: FirebaseMessagingTypes.RemoteMessage,
+  ) => void;
+  onMessage: (message: FirebaseMessagingTypes.RemoteMessage) => void;
+}) => {
+  try {
+    await messaging().requestPermission();
+    const fcmToken = await messaging().getToken();
+    args.onGetToken(fcmToken);
+  } catch (error) {
+    logger.error('[push-messaging-flow] error', error);
+  }
+
+  await messaging().onTokenRefresh(async token => {
+    logger.debug('[push-messaging-flow] onTokenRefresh');
+    args.onGetToken(token);
+  });
+
+  const channelId = await notifee.createChannel({
+    id: 'likon',
+    name: 'Likon',
+    description: 'Likon',
+    importance: AndroidImportance.HIGH,
+    visibility: AndroidVisibility.PUBLIC,
+    vibration: true,
+  });
+
+  messaging().onNotificationOpenedApp(message => {
+    const data = message.data;
+    const sourceUserId = data?.source_user_id as string;
+    // if (sourceUserId) {
+    //   chatFlow.navigateToChatOnPushMessage(sourceUserId);
+    // }
+  });
+
+  messaging().onMessage(async message => {
+    const body = message.notification?.body || '';
+    const title = message.notification?.title || '';
+    const data = message.data;
+
+    // if (data?.source_user_id && data?.source_user_id === chatStore.openedChatTargetUserId) {
+    //   return;
+    // }
+
+    args.onMessage(message);
+
+    // await notifee.displayNotification({
+    //   title,
+    //   body,
+    //   data,
+    //   android: {
+    //     channelId,
+    //   },
+    // });
+  });
+
+  notifee.onForegroundEvent(event => {
+    if (
+      event.type === EventType.ACTION_PRESS ||
+      event.type === EventType.PRESS
+    ) {
+      const sourceUserId = event.detail.notification?.data
+        ?.source_user_id as string;
+    }
+  });
+};
+
+export const pushMessagingFlow = {
+  initNotifications,
+};

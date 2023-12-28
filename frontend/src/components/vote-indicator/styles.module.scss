@@ -1,0 +1,14 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.text {
+  font-size: 0.8rem;
+}
+
+.text-good {
+  color: $success;
+}
+
+.text-bad {
+  color: $danger;
+}

@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.input {
+  position: fixed;
+  bottom: 100px;
+}
+
+.message-list {
+  height: calc(100vh - 133px);
+  overflow: auto;
+}

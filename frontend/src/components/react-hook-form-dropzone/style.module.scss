@@ -1,0 +1,76 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.dropzone {
+  border-style: dashed !important;
+}
+
+.thumb {
+  display: inline-flex;
+  border-radius: 2px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 100px;
+  height: 100px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+// $thumbTitleColor: tint-color($primary, 20%);
+$thumbTitleColor: $dark;
+
+.thumb-title {
+  border-radius: 2;
+  box-shadow: 0px 0px 0px 2px $thumbTitleColor inset;
+  -webkit-box-shadow: 0px 0px 0px 2px $thumbTitleColor inset;
+  -moz-box-shadow: 0px 0px 0px 2px $thumbTitleColor inset;
+}
+
+.thumb-title-label {
+  position: absolute;
+  bottom: -6px;
+  font-size: 0.7rem;
+  background-color: $thumbTitleColor;
+  color: white;
+  left: 50%;
+  width: 70%;
+  transform: translateX(-50%);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.thumbInner {
+  display: flex;
+  min-width: 0px;
+  overflow: hidden;
+  background: #d5d5d5;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.close {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0px 0px 0px 2px white;
+  -webkit-box-shadow: 0px 0px 0px 2px white;
+  -moz-box-shadow: 0px 0px 0px 2px white;
+}

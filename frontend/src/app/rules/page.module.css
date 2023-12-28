@@ -1,0 +1,19 @@
+.iframe {
+  border: 0;
+  width: 100vw;
+  top: 40px;
+  height: calc(100vh - 90px);
+  z-index: 1;
+  background: white;
+  position: absolute;
+}
+
+.loader {
+  z-index: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

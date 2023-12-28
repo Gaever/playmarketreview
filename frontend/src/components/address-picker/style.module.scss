@@ -1,0 +1,19 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.gmap {
+  & > div > div {
+    background: $gray-100;
+  }
+}
+
+.address-label {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.button-coordinates {
+  font-size: $font-size-xs;
+  line-height: 0.75rem;
+}

@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA")
+}
+
+model chat_rooms {
+  id String @id @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
+
+  variant String?
+  status  String?
+
+  title String?
+
+  chat_rooms_users__links chat_rooms_users__link[]
+  chat_messages           chat_message[]
+  messages_read           messages_read[]
+}
+
+model chat_rooms_users__link {
+  userId Int
+
+  chatRoomId String     @db.Uuid
+  chat_rooms chat_rooms @relation(fields: [chatRoomId], references: [id])
+
+  @@id([userId, chatRoomId])
+}
+
+model chat_message {
+  id String @id @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
+
+  status  String?
+  variant String?
+
+  text String?
+
+  author_user_id String
+
+  chat_room    chat_rooms @relation(fields: [chat_room_id], references: [id])
+  chat_room_id String     @db.Uuid
+}
+
+model messages_read {
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+
+  chat_room chat_rooms @relation(fields: [chat_room_id], references: [id])
+
+  user_id              String
+  chat_room_id         String @db.Uuid
+  last_read_message_id String @db.Uuid
+
+  @@id([user_id, chat_room_id])
+}

@@ -1,0 +1,46 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.input {
+  bottom: 51px;
+}
+
+.container :global {
+  & .rce-container-mbox {
+    .rce-mbox {
+      background-color: $light;
+      box-shadow: none;
+
+      &:not(.rce-mbox-right) {
+        margin-left: map.get($spacers, 2);
+      }
+
+      &.rce-mbox-right {
+        background-color: tint-color($primary, 50%);
+        margin-right: map.get($spacers, 2);
+      }
+    }
+
+    .rce-mbox-status path {
+      color: $primary;
+    }
+    .rce-mbox-status path:nth-of-type(2) {
+      fill: $primary;
+    }
+  }
+
+  & .rce-container-input {
+    border-top: $border-width $border-style tint-color($border-color, 50%);
+    padding: map.get($spacers, 1);
+    padding-left: map.get($spacers, 1);
+
+    .rce-input-textarea {
+      padding-left: map.get($spacers, 2);
+      padding-right: map.get($spacers, 2);
+    }
+  }
+}
+
+.container {
+  padding-top: map.get($spacers, 3) * 2;
+}

@@ -1,0 +1,33 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.circle {
+  border-radius: 9999px;
+  width: 60%;
+  padding-bottom: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 2px solid $primary;
+  background-color: rgba(tint-color($primary, 30%), 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dot {
+  pointer-events: none;
+  border-radius: 9999px;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 2px solid white;
+  background-color: $primary;
+}
+
+.close {
+  z-index: 1;
+  top: 1rem;
+  left: 1rem;
+}

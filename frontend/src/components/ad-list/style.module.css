@@ -1,0 +1,64 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* gap: 20px; */
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.imageContainer {
+  aspect-ratio: 1 / 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.details {
+  margin-top: 10px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 16px;
+  /* font-weight: bold; */
+  margin-right: 10px;
+}
+
+.heartIcon {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.address {
+  color: #777;
+  font-size: 10px;
+}
+
+.creationDate {
+  color: #777;
+  font-size: 10px;
+}

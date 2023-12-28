@@ -1,0 +1,9 @@
+.rate {
+  position: relative;
+  bottom: 3px;
+}
+
+.conditions {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}

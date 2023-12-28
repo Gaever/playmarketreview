@@ -1,0 +1,10 @@
+.image {
+  height: 70px;
+  maxwidth: 300px;
+  objectfit: cover;
+  objectposition: center center;
+  boxsigzing: border-box;
+  borderwidth: 3px;
+  borderstyle: solid;
+  bordercolor: transparent;
+}

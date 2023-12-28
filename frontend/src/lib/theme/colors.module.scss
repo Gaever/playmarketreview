@@ -1,0 +1,35 @@
+// Custom colors based on the Triadic Scheme
+$base: #c57249;
+$olive-green: #8bc549;
+$light-blue: #498cc5;
+
+// Customize Bootstrap variables with the new color scheme
+$primary: $base;
+$success: $olive-green;
+$info: $light-blue;
+
+// Optional: Customize other colors as needed
+$secondary: darken($base, 15%);
+$danger: #dc3545;
+$like: #f04438;
+$warning: #ffc107;
+$light: #f8f9fa;
+$dark: #343a40;
+
+$primary: #c57249;
+$info: #c59349;
+$secondary: #49c5c5;
+$success: #93c549;
+$danger: #c54949;
+$warning: #7249c5;
+
+:export {
+  primary: $primary;
+  info: $info;
+  secondary: $secondary;
+  success: $success;
+  danger: $danger;
+  warning: $warning;
+  light: $light;
+  dark: $dark;
+}

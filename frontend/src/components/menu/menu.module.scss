@@ -1,0 +1,50 @@
+@use "sass:map";
+@import "@/lib/theme/theme";
+
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.row-item {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: initial;
+  vertical-align: top;
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.row-item:hover {
+  opacity: 0.9;
+}
+
+.scrollmenu::-webkit-scrollbar {
+  display: none;
+}
+
+.title {
+  font-size: 0.75rem;
+  color: black;
+}
+
+.picked {
+  background-color: $primary;
+}
+.picked:hover {
+  opacity: 0.9;
+  background-color: $primary;
+}
+.picked > div > div {
+  color: white;
+}
+.picked > div > svg {
+  fill: white;
+}
+
+.category-item {
+  min-height: 30px;
+  text-align: left;
+}
